@@ -4,7 +4,7 @@ let config = {
 		baseURI: "/assets"
 	},
 	bundles: [{
-		entryPoint: "index.js",
+		entryPoint: "index.jsx",
 		target: "dist/bundle.js",
 		extensions: [".jsx"],
 		transpiler: {
