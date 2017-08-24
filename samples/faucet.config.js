@@ -6,7 +6,6 @@ let config = {
 	bundles: [{
 		entryPoint: "index.jsx",
 		target: "dist/bundle.js",
-		extensions: [".jsx"],
 		transpiler: {
 			features: ["es2015", "jsx"],
 			jsx: { pragma: "createElement" }
