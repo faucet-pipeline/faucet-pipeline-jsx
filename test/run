@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+set -e
+
+root=`dirname "$0"`
+root=`realpath "$root/.."`
+
+function begin {
+	test_dir="${1:?}"
+	echo; echo `basename "$test_dir"`
+	pushd "$test_dir" > /dev/null
+}
+
+function end {
+	bundles_dir=${1:-"./dist"}
+	rm -r "$bundles_dir"
+	popd > /dev/null
+}
+
+function assert_identical {
+	actual="${1:?}"
+	expected="${2:?}"
+	# NB: `git diff` provides colorization (dependent on configuration)
+	git diff --no-index "$expected" "$actual" || \
+			fail "files \`$actual\` and \`$expected\` are not identical"
+}
+
+function fail {
+	msg="${1:?}"
+	echo; echo "FAILURE: $msg"
+	false
+}
+
+cd "$root/test"
+
+begin "./test_transpilation"
+	faucet --no-fingerprint
+	assert_identical "./dist/bundle.js" "./expected.js"
+end
+
+echo; echo "SUCCESS: all tests passed"
