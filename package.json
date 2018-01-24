@@ -1,6 +1,7 @@
 {
 	"name": "faucet-pipeline-jsx",
-	"version": "0.11.0",
+	"version": "1.0.0-beta.0",
+	"description": "JavaScript and JSX asset pipeline",
 	"author": "FND",
 	"license": "Apache-2.0",
 	"homepage": "https://github.com/faucet-pipeline/faucet-pipeline-jsx",
@@ -12,13 +13,13 @@
 		"url": "https://github.com/faucet-pipeline/faucet-pipeline-jsx/issues"
 	},
 	"scripts": {
-		"start": "npm-run-all --parallel lint test",
-		"test": "./test/run",
+		"test": "npm-run-all --parallel lint test:cli",
+		"test:cli": "./test/run",
 		"lint": "eslint --cache --ext .js --ext .jsx *.js samples && echo ✓"
 	},
 	"dependencies": {
 		"babel-plugin-transform-react-jsx": "^6.24.1",
-		"faucet-pipeline-js": "0.x"
+		"faucet-pipeline-js": "1.0.0-beta.0"
 	},
 	"devDependencies": {
 		"eslint-config-fnd-jsx": "^1.1.0",
