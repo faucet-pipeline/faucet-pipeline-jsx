@@ -19,7 +19,7 @@
 	},
 	"dependencies": {
 		"babel-plugin-transform-react-jsx": "^6.24.1",
-		"faucet-pipeline-js": "1.0.0-beta.0"
+		"faucet-pipeline-js": "1.0.0-beta.1"
 	},
 	"devDependencies": {
 		"eslint-config-fnd-jsx": "^1.1.0",
